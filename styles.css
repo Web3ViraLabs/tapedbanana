@@ -1,0 +1,2069 @@
+:root {
+    --banana-yellow: #FFE135;
+    --banana-dark: #FFB700;
+    --background: #1a1a1a;
+    --text-light: #ffffff;
+    --accent-green: #4CAF50;
+    --container-width-xl: 1200px;
+    --container-width-lg: 960px;
+    --container-width-md: 720px;
+    --container-width-sm: 540px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Neue', cursive;
+    background-color: var(--background);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Sound Toggle */
+.sound-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.sound-toggle button {
+    background: none;
+    border: none;
+    color: var(--banana-yellow);
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.sound-toggle button:hover {
+    transform: scale(1.1);
+}
+
+/* Bouncing Banana */
+.bouncing-banana {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: url('assets/banana-icon.png') no-repeat center/contain;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Hero Section */
+#hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(45deg, var(--background), #2a2a2a);
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.hero-content {
+    text-align: center;
+    padding: 20px;
+    z-index: 1;
+}
+
+.taped-banana {
+    position: relative;
+    width: 300px;
+    margin: 0 auto 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-banana {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.hero-banana:hover {
+    transform: scale(1.05);
+}
+
+h1 {
+    font-size: 4rem;
+    color: var(--banana-yellow);
+    text-shadow: 3px 3px 0 #000;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: var(--banana-dark);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+.btn-primary {
+    background-color: var(--banana-yellow);
+    color: var(--background);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    border: 2px solid var(--banana-yellow);
+    color: var(--banana-yellow);
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(26, 26, 26, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem 2rem;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(0);
+}
+
+.navbar.scrolled {
+    padding: 0.8rem 2rem;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.nav-hidden {
+    transform: translateY(-100%);
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #FFD700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.nav-brand span {
+    font-size: 1.8rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav-links li a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+}
+
+.nav-links li a:hover {
+    color: #FFD700;
+}
+
+.nav-links li a.active {
+    color: #FFD700;
+    background: rgba(255, 215, 0, 0.1);
+}
+
+.nav-button {
+    background: #FFD700;
+    color: #1a1a1a !important;
+    padding: 0.8rem 1.5rem !important;
+    border-radius: 50px !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+    color: #1a1a1a !important;
+}
+
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #FFD700;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+@media (max-width: 968px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: rgba(26, 26, 26, 0.98);
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .nav-links.active {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links li {
+        margin: 1rem 0;
+    }
+
+    .nav-links li a {
+        padding: 0.5rem 1rem;
+        display: block;
+        font-size: 1.2rem;
+    }
+
+    .nav-button {
+        display: inline-block;
+        margin: 0.5rem auto;
+    }
+}
+
+/* Sections */
+section {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.about-content, .tokenomics-content, .roadmap-content, .how-to-buy-content {
+    text-align: center;
+}
+
+.meme-text {
+    font-size: 1.5rem;
+    color: var(--banana-yellow);
+    text-align: center;
+    margin: 40px 0;
+}
+
+/* Tokenomics Section Styling */
+.tokenomics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+    .tokenomics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .tokenomics-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+}
+
+.tokenomics-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(255, 225, 53, 0.1);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.tokenomics-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--banana-yellow);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.tokenomics-card h3 {
+    color: var(--banana-yellow);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.token-amount {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    margin: 1rem 0;
+}
+
+.token-subtitle {
+    color: #888;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.card-hover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.tokenomics-card:hover .card-hover {
+    opacity: 1;
+}
+
+.card-hover p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.tokenomics-features {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.feature h4 {
+    color: #FFD700;
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.feature p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.nft-features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .tokenomics-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .tokenomics-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .feature {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+/* Tokenomics */
+.tokenomics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tokenomics-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.tokenomics-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Roadmap */
+.roadmap-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+.timeline-track {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--banana-yellow) 0%, rgba(255, 225, 53, 0.1) 100%);
+    transform: translateX(-50%);
+    z-index: 1;
+}
+
+.milestone-card {
+    position: relative;
+    width: calc(50% - 30px);
+    margin: 2rem 0;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 225, 53, 0.1);
+    transition: all 0.3s ease;
+}
+
+.milestone-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--banana-yellow);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.milestone-card:nth-child(odd) {
+    left: 0;
+}
+
+.milestone-card:nth-child(even) {
+    left: calc(50% + 30px);
+}
+
+.milestone-card::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--banana-yellow);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.milestone-card:nth-child(odd)::before {
+    right: -40px;
+}
+
+.milestone-card:nth-child(even)::before {
+    left: -40px;
+}
+
+.milestone-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.milestone-content h3 {
+    color: var(--banana-yellow);
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.milestone-items {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.milestone-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.milestone-item:hover {
+    background: rgba(0, 0, 0, 0.3);
+    transform: translateX(5px);
+}
+
+.milestone-item p {
+    margin: 0;
+    color: white;
+}
+
+.check {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.loading {
+    color: var(--banana-yellow);
+    animation: spin 2s linear infinite;
+}
+
+.pending {
+    color: #888;
+}
+
+.roadmap-disclaimer {
+    text-align: center;
+    margin-top: 3rem;
+    color: #888;
+    font-style: italic;
+}
+
+.roadmap-disclaimer p {
+    margin: 0.5rem 0;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .milestone-card {
+        width: 100%;
+        margin: 1rem 0;
+    }
+
+    .milestone-card:nth-child(even),
+    .milestone-card:nth-child(odd) {
+        left: 0;
+    }
+
+    .timeline-track {
+        left: 20px;
+    }
+
+    .milestone-card::before {
+        left: -30px !important;
+    }
+}
+
+/* How to Buy */
+.steps-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.step {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.step-icon {
+    font-size: 2rem;
+    background: rgba(255, 215, 0, 0.1);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+
+.step-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.step-content h3 {
+    color: #FFD700;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.step-content p {
+    color: #fff;
+    opacity: 0.9;
+    font-size: 0.9rem;
+    margin: 0;
+    flex: 1;
+}
+
+.contract-box {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin: 0.5rem auto;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: fit-content;
+}
+
+.contract-box code {
+    color: #FFD700;
+    font-family: monospace;
+    margin: 0;
+    padding: 0;
+}
+
+.copy-icon {
+    cursor: pointer;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+.copy-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.copy-btn, .tooltip {
+    display: none;
+}
+
+.slippage-tip {
+    background: rgba(255, 215, 0, 0.1);
+    padding: 0.5rem;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.community-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.social-link {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+}
+
+.buy-warning {
+    text-align: center;
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.buy-warning p {
+    color: #fff;
+    opacity: 0.9;
+    margin: 0;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    transition: transform 0.3s ease;
+}
+
+.buy-warning p:first-child {
+    background: rgba(255, 99, 71, 0.1);
+    border: 1px solid rgba(255, 99, 71, 0.3);
+}
+
+.buy-warning p:last-child {
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.buy-warning p:hover {
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .steps-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .steps-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .step {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .steps-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* How to Buy Section Styles */
+.how-to-buy-section {
+    padding: 5rem 0;
+    background: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.how-to-buy-section h2 {
+    text-align: center;
+    color: #FFD700;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    opacity: 0.8;
+}
+
+/* Community */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.social-link {
+    color: var(--text-light);
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+}
+
+.social-link:hover {
+    color: var(--banana-yellow);
+}
+
+.holder-count {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.counter {
+    font-size: 3rem;
+    color: var(--banana-yellow);
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.disclaimer {
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    color: var(--text-light);
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: var(--banana-yellow);
+}
+
+/* About Section */
+.about {
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.about-text {
+    max-width: 600px;
+}
+
+.about-text h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #FFD700;
+    font-weight: bold;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+    max-width: 100%;
+}
+
+.about-image {
+    position: relative;
+    height: 100%;
+    max-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-frame {
+    position: relative;
+    padding: 20px;
+    background: var(--banana-yellow);
+    border-radius: 10px;
+    transform: rotate(-3deg);
+    transition: transform 0.3s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 400px;
+}
+
+.image-frame:hover {
+    transform: rotate(0deg) scale(1.02);
+}
+
+.image-frame img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.about-image img {
+    max-width: 100%;
+    height: auto;
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 20px;
+}
+
+@media (max-width: 968px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .about-text {
+        margin: 0 auto;
+    }
+
+    .about-image {
+        order: -1;
+        margin: 0 auto;
+    }
+
+    .image-frame {
+        margin: 0 auto;
+    }
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 215, 0, 0.3);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card h3 {
+    color: #FFD700;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.about-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    margin: 3rem 0;
+}
+
+.stat-card {
+    text-align: center;
+    flex: 1;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #FFD700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.about-quote {
+    background: rgba(255, 215, 0, 0.05);
+    border-left: 4px solid #FFD700;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 0 16px 16px 0;
+}
+
+.about-quote blockquote {
+    margin: 0;
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+/* Token Stats Styling */
+.token-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem auto;
+    padding: 1rem;
+    max-width: 1200px;
+}
+
+.bottom-stats {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.countdown-contract {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.countdown-section, .contract-section {
+    padding: 1rem;
+}
+
+.countdown-section {
+    border-right: 1px solid rgba(255, 225, 53, 0.1);
+}
+
+.stat-group {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 225, 53, 0.1);
+    transition: all 0.3s ease;
+}
+
+.stat-group:hover {
+    border-color: var(--banana-yellow);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-item {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.stat-item:last-child {
+    margin-bottom: 0;
+}
+
+.stat-item h4, .countdown-section h4, .contract-section h4 {
+    color: #888;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+}
+
+.stat-value {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.contract-address {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    font-size: 1rem;
+    word-break: break-all;
+    padding: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+/* Responsive adjustments for token stats */
+@media (max-width: 768px) {
+    .token-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .countdown-contract {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .countdown-section {
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 225, 53, 0.1);
+    }
+
+    .stat-value {
+        font-size: 1.2rem;
+    }
+
+    .contract-address {
+        font-size: 0.8rem;
+    }
+}
+
+/* NFT Carousel Styles */
+.nft-carousel {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.carousel-container {
+    overflow: hidden;
+    position: relative;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    padding: 0 1rem;
+}
+
+.nft-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 1.5rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 225, 53, 0.1);
+    transition: all 0.3s ease;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.nft-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--banana-yellow);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nft-image {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.nft-info {
+    text-align: center;
+}
+
+.nft-info h3 {
+    color: var(--banana-yellow);
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.nft-rarity {
+    color: #ff6b6b;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.nft-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+}
+
+.price {
+    color: var(--banana-yellow);
+    font-weight: bold;
+}
+
+.carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.carousel-button:hover {
+    background: rgba(255, 225, 53, 0.5);
+}
+
+.prev-button {
+    left: 10px;
+}
+
+.next-button {
+    right: 10px;
+}
+
+.carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.indicator {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.indicator.active {
+    background: var(--banana-yellow);
+    transform: scale(1.2);
+}
+
+@media (max-width: 768px) {
+    .carousel-button {
+        width: 30px;
+        height: 30px;
+        font-size: 1rem;
+    }
+}
+
+/* NFT Section with Owl Carousel */
+.nft-section {
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.nft-carousel {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.nft-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 1rem;
+    margin: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.nft-card:hover {
+    transform: translateY(-5px);
+}
+
+.nft-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.nft-info {
+    text-align: center;
+}
+
+.nft-info h3 {
+    margin: 0.5rem 0;
+    color: #FFD700;
+}
+
+.nft-rarity {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    background: rgba(255, 215, 0, 0.2);
+    border-radius: 20px;
+    color: #FFD700;
+    margin: 0.5rem 0;
+}
+
+.nft-price {
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+.nft-price .price {
+    color: #FFD700;
+}
+
+/* Owl Carousel Custom Styles */
+.owl-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+    padding: 0 1rem;
+}
+
+.owl-prev, .owl-next {
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(5px);
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem !important;
+    color: #FFD700 !important;
+    pointer-events: auto;
+    transition: all 0.3s ease;
+}
+
+.owl-prev:hover, .owl-next:hover {
+    background: rgba(255, 215, 0, 0.3) !important;
+    color: white !important;
+}
+
+.owl-dots {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.owl-dot span {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(5px);
+}
+
+.owl-dot.active span {
+    background: #FFD700 !important;
+}
+
+/* NFT Section */
+.nft-section {
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.nft-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nft-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.nft-header h2 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: #FFD700;
+}
+
+.nft-header h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #fff;
+}
+
+.nft-header p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.nft-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.nft-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.nft-features {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.feature h4 {
+    color: #FFD700;
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.feature p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.nft-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.stat {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.stat-value {
+    display: block;
+    font-size: 1.5rem;
+    color: #FFD700;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.nft-preview {
+    position: sticky;
+    top: 2rem;
+}
+
+.nft-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.nft-card:hover {
+    transform: translateY(-5px);
+}
+
+.nft-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.nft-info {
+    text-align: center;
+}
+
+.nft-info h3 {
+    margin: 0.5rem 0;
+    color: #FFD700;
+    font-size: 1.5rem;
+}
+
+.nft-rarity {
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    background: rgba(255, 215, 0, 0.2);
+    border-radius: 20px;
+    color: #FFD700;
+    margin: 0.5rem 0;
+}
+
+.nft-price {
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+.nft-price .price {
+    color: #FFD700;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .nft-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .nft-preview {
+        position: static;
+    }
+
+    .nft-header {
+        margin-bottom: 3rem;
+    }
+
+    .nft-header h2 {
+        font-size: 2.5rem;
+    }
+
+    .nft-header h3 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .nft-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .nft-header {
+        margin-bottom: 2rem;
+    }
+
+    .nft-header h2 {
+        font-size: 2rem;
+    }
+
+    .nft-header h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .taped-banana {
+        width: 200px;
+        height: 200px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(26, 26, 26, 0.95);
+        flex-direction: column;
+        padding: 1rem;
+        gap: 1rem;
+        backdrop-filter: blur(10px);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-button {
+        display: inline-block;
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Base responsive settings */
+.container {
+    width: 100%;
+    max-width: var(--container-width-xl);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Responsive Typography */
+html {
+    font-size: 16px;
+}
+
+@media (max-width: 768px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+/* Grid System */
+.grid {
+    display: grid;
+    gap: 2rem;
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+/* Responsive Grid */
+@media (max-width: 1200px) {
+    .grid-4 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 968px) {
+    .grid-3, .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Section Spacing */
+section {
+    padding: 100px 20px;
+}
+
+@media (max-width: 768px) {
+    section {
+        padding: 60px 16px;
+    }
+}
+
+/* Hero Section Responsive */
+.hero {
+    min-height: 100vh;
+    padding-top: 120px;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 100px;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
+    }
+}
+
+/* About Section Responsive */
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+@media (max-width: 968px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .about-image {
+        order: -1;
+    }
+}
+
+/* Tokenomics Section Responsive */
+.tokenomics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.token-stat {
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .token-stat {
+        padding: 1.5rem;
+    }
+}
+
+/* NFT Section Responsive */
+.nft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.nft-card {
+    padding: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .nft-card {
+        padding: 1rem;
+    }
+}
+
+/* Community Section Responsive */
+.community-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .community-links {
+        gap: 1rem;
+    }
+}
+
+/* Button Responsive */
+.btn {
+    padding: 1rem 2rem;
+}
+
+@media (max-width: 768px) {
+    .btn {
+        padding: 0.8rem 1.5rem;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Images Responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Glassmorphism Cards Responsive */
+.glass-card {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 2rem;
+}
+
+@media (max-width: 768px) {
+    .glass-card {
+        padding: 1.5rem;
+    }
+}
+
+/* Animation Adjustments for Mobile */
+@media (max-width: 768px) {
+    .animation-element {
+        transform: scale(0.8);
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .hover-effect {
+        display: none;
+    }
+    
+    .touch-friendly {
+        padding: 1rem;
+        min-height: 44px;
+    }
+}
+
+/* NFT Collection Section */
+.nft-section {
+    background: linear-gradient(rgba(26, 26, 26, 0.9), rgba(26, 26, 26, 0.95));
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.nft-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nft-card {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.1);
+    position: relative;
+    overflow: visible;
+}
+
+.nft-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.1);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.nft-image {
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.nft-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.nft-card:hover .nft-image img {
+    transform: scale(1.05);
+}
+
+.nft-details {
+    padding: 1rem 0;
+}
+
+.nft-title {
+    font-size: 1.5rem;
+    color: #FFD700;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.nft-description {
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+}
+
+.nft-price {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.2rem;
+    color: #FFD700;
+    margin-bottom: 1rem;
+}
+
+.nft-price span {
+    font-weight: bold;
+}
+
+.nft-stats {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nft-stat {
+    text-align: center;
+}
+
+.nft-stat-value {
+    font-size: 1.2rem;
+    color: #FFD700;
+    font-weight: bold;
+}
+
+.nft-stat-label {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.mint-button {
+    background: #FFD700;
+    color: #1a1a1a;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.mint-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3);
+}
+
+.nft-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 215, 0, 0.9);
+    color: #1a1a1a;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .nft-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .nft-image {
+        height: 250px;
+    }
+
+    .nft-title {
+        font-size: 1.3rem;
+    }
+}
+
+.step-link {
+    display: inline-block;
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.step-link:hover {
+    color: #FFF;
+}
