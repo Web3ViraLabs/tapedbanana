@@ -2067,3 +2067,15 @@ img {
 .step-link:hover {
     color: #FFF;
 }
+
+.nft-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.nft-card {
+    max-width: 400px;
+    margin: 0 auto;
+}
